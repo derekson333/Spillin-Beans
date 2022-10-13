@@ -8,13 +8,19 @@
       "cook_time": 9.5
     },
     {
-      "name": "The Ultimate Tech Quiz",
-      "description": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!",
-      "needed_funding": 10000
+        "name": "Steak fajitas",
+        "description": "Fried meat on bread with sauteed vegetables.",
+        "ingredients": "1 cup flour. 2 cups sugar. 3 cups salt.",
+        "instructions": "Stir vigorously, add beans flour and salt.",
+        "prep_time": 5.6,
+        "cook_time": 9.5
     },
     {
-      "name": "Roll 'Em Up",
-      "description": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.",
-      "needed_funding": 800
+        "name": "Steak fajitas",
+        "description": "Fried meat on bread with sauteed vegetables.",
+        "ingredients": "1 cup flour. 2 cups sugar. 3 cups salt.",
+        "instructions": "Stir vigorously, add beans flour and salt.",
+        "prep_time": 5.6,
+        "cook_time": 9.5
     }
   ]
