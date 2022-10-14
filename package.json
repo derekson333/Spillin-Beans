@@ -19,6 +19,7 @@
   "homepage": "https://github.com/derekson333/UNH-Group5-Project2#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "connect-session-sequelize": "^7.1.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
