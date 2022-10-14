@@ -20,14 +20,6 @@ Recipe.init({
     description: {
         type: DataTypes.STRING,
     },
-    ingredients: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    instructions: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
     prep_time: {
         type: DataTypes.FLOAT,
         allowNull: false,
