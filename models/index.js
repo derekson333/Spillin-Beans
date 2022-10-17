@@ -8,19 +8,19 @@ User.hasMany(Recipe, {
   onDelete: 'CASCADE'
 });
 
-Recipe.hasMany(Ingredient, {
-});
+// Recipe.hasMany(Ingredient, {
+// });
 
-Ingredient.belongsToMany(Recipe, {
+// Ingredient.belongsToMany(Recipe, {
 
-})
+// })
 
-Recipe.hasMany(Instruction, {
-});
+// Recipe.hasMany(Instruction, {
+// });
 
-Instruction.belongsToMany(Recipe, {
+// Instruction.belongsToMany(Recipe, {
   
-})
+// })
 
 
 Recipe.belongsTo(User, {
