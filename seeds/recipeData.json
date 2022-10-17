@@ -2,24 +2,18 @@
     {
       "name": "Thai Chili Sauce",
       "description": "Far better than any store bought sweet and spicy sauce. Great on chicken.",
-      "ingredients": "1/3 cup rice vinegar. 1/3 cup water. 1/3 cup sugar. 1 tablespoon rice wine. 1 tabelspoon red chili flakes. 2 teaspoons minced garlic. 2 teaspoons minced ginger. 1 teaspoon soy sauce. 2 teaspoons corn starch.",
-      "instructions": "1. Place all of the ingredients except for the cornstarch mixture in a small saucepan. 2. Bring it to a boil, stirring regularly. 3. Once the sugar is dissolved stir in the cornstarch mixture, stirring continually until thickened, about 1 minute. 4. Let the sauce cool completely, pour into an airtight jar and store in the refrigerator. Will keep for up to a week. Makes about 1 cup.",
       "prep_time": 3.5,
       "cook_time": 5
     },
     {
         "name": "Banana Bread",
         "description": "Much better than other inferior bread.",
-        "ingredients": "3 very ripe bananas. 1/3 cup butter. 1/2 teaspoon baking soda. 1 pinch salt. 3/4 cup sugar. 1 large egg. 1 teaspoon vanilla extract. 1 1/2 cups flour.",
-        "instructions": "1. Preheat the oven to 350, butter a 8 x 4 inch loaf pan. 2. Mash ripe bananas, stir the melted butter in. 3. Mix in baking soda and salt. 4. Stir in sugar, egg, vanilla extract. 5. Stir in the flour. 4. Pour the batter into the loaf pan. 5. Bake for 55-65 minutes at 350°F or until a toothpick inserted into the center comes out clean. 6. Cool and serve, the banana bread will keep at room temperature for 4 days.",
         "prep_time": 10,
         "cook_time": 60
     },
     {
         "name": "Hummus",
         "description": "Tan paste.",
-        "ingredients": "1 can chickpeas. 1/4 cup lemon juice. 1/4 cup tahini. 1 garlic clove minced. 2 tablespoons olive oil. 1/2 teaspoon ground cumin. 2 tablespoons paprika.",
-        "instructions": "1. Combine tahini and lemon juice in food processor. 2. Add oil, garlic, cumin, and salt to the whipped mixture. 3. Drain chickpeas, add half of the chicpeas and process for 1 minute. 4. Scrape sides, add remaining chicpeas and process for 2 minutes. 5. If there is remaining whole beans add a small amount of water and process again. Repeat until smooth, serve with pita bread or chips",
         "prep_time": 10,
         "cook_time": 0
     }
