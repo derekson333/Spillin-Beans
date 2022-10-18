@@ -29,6 +29,7 @@ router.get('/signup', (req, res) => {
 })
 
 // GET route to render the search results page
+// We may need to add another route to separate user searches from recipe searches
 router.get('/results', (req, res) => {
     try {
         res.status(200).render('results', {});
