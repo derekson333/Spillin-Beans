@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Recipe, User, Ingredient } = require('../../models');
+const { Recipe } = require('../../models');
 
 // GET route to view all recipes
 router.get('/', async (req, res) => {
