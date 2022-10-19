@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 // POST route to add a single ingredient
 router.post('/', async (req, res) => {
     try {
-        const ingredientData = await Ingredient.create(body.req)
+        const ingredientData = await Ingredient.create(req.body)
 
         res.status(200).json(ingredientData);
     } catch (err) {
