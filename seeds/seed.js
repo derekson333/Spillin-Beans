@@ -1,10 +1,13 @@
 const sequelize = require('../config/connection');
-const { User, Recipe, Ingredient, Instruction } = require('../models');
+const { User, Recipe, Ingredient, Instruction, IngredientMap, InstructionMap} = require('../models');
 
 const userData = require('./userData.json');
 const recipeData = require('./recipeData.json');
 const ingredientData = require('./ingredientData.json');
 const instructionData = require('./instructionData.json');
+const ingredientMapData = require('./ingredientMapData.json');
+const instructionMapData = require('./instructionMapData.json');
+
 
 
 const seedDatabase = async () => {
@@ -31,6 +34,18 @@ const seedDatabase = async () => {
   for (const instruction of instructionData) {
     await Instruction.create({
       ...instruction,
+    });
+  }
+
+  for (const ingredientMap of ingredientMapData) {
+    await IngredientMap.create({
+      ...ingredientMap,
+    });
+  }
+
+  for (const instructionMap of instructionMapData) {
+    await InstructionMap.create({
+      ...instructionMap,
     });
   }
 
