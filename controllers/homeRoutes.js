@@ -46,8 +46,16 @@ router.get('/results', (req, res) => {
 // GET route to render the user profile page by id
 router.get('/users/:id', (req, res) => {
     try {
-        const id = req.params.id;
-        res.status(200).render('profile', {id});
+        const userData = await User.findByPk(req.params.id, {
+            attributes: { exclude: ['password'] },
+        });
+
+        const user = userData.get({ plain: true });
+
+        res.status(200).render('profile', { 
+            ...user,
+            logged_in: req.session.logged_in
+        });
     } catch (err) {
         res.status(500).json(err)
     }
