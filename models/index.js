@@ -1,7 +1,7 @@
 const User = require('./User');
 const Recipe = require('./Recipe');
-const Ingredient = require('./Ingredient');
-const Instruction = require('./Instruction');
+const Ingredient = require('./ingredient');
+const Instruction = require('./instruction');
 const IngredientMap = require('./IngredientMap');
 const InstructionMap = require('./InstructionMap')
 
