@@ -1,8 +1,8 @@
 const User = require('./User');
-const Recipe = require('./recipe');
+const Recipe = require('./Recipe');
 const Ingredient = require('./ingredient');
 const Instruction = require('./instruction');
-const IngredientMap = require('./ingredientMap');
+const IngredientMap = require('./IngredientMap');
 const InstructionMap = require('./InstructionMap')
 
 User.hasMany(Recipe, {
