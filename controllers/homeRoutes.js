@@ -50,7 +50,7 @@ router.get('/results', (req, res) => {
 });
 
 // GET route to render the user profile page by id
-router.get('/users/:id', (req, res) => {
+router.get('/users/:id', async (req, res) => {
     try {
         const userData = await User.findByPk(req.params.id, {
             attributes: { exclude: ['password'] },
