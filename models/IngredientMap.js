@@ -14,6 +14,7 @@ IngredientMap.init({
     recipe_id: {
         type: DataTypes.INTEGER,
         foreignKey: true,
+        unique: false,
         references: {
             model: 'recipe',
             key: 'id',
@@ -22,6 +23,7 @@ IngredientMap.init({
     ingredient_id: {
         type: DataTypes.INTEGER,
         foreignKey: true,
+        unique: false,
         references: {
             model: 'ingredient',
             key: 'id',
