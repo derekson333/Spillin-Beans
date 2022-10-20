@@ -19,13 +19,16 @@ Ingredient.belongsToMany(Recipe, {
 })
 
 Recipe.belongsToMany(Ingredient, {
-  through: IngredientMap
+  through: IngredientMap,
+  foreignKey: 'recipe_id'
 })
 Instruction.belongsToMany(Recipe, {
-  through: InstructionMap
+  through: InstructionMap,
+  foreignKey: 'instruction_id'
 })
 Recipe.belongsToMany(Instruction, {
-  through: InstructionMap
+  through: InstructionMap,
+  foreignKey: 'recipe_id'
 });
 
 
