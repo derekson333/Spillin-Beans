@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Recipe } = require('../models');
+const withAuth = require('../utils/auth')
 
 // GET route to render the homepage
 router.get('/', (req, res) => {
@@ -41,7 +42,7 @@ router.get('/signup', (req, res) => {
 
 // GET route to render the search results page
 // We may need to add another route to separate user searches from recipe searches
-router.get('/results', (req, res) => {
+router.get('/results', withAuth, (req, res) => {
     try {
         res.status(200).render('results', {});
     } catch (err) {
@@ -50,7 +51,7 @@ router.get('/results', (req, res) => {
 });
 
 // GET route to render the user profile page by id
-router.get('/users/:id', async (req, res) => {
+router.get('/users/:id', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.params.id, {
             attributes: { exclude: ['password'] },
@@ -68,7 +69,7 @@ router.get('/users/:id', async (req, res) => {
 });
 
 // GET route to render the recipe view page by id
-router.get('/recipes/:id', async (req, res) => {
+router.get('/recipes/:id', withAuth, async (req, res) => {
     try {
         const recipeData = await Recipe.findByPk(req.params.id, {
             include: {
