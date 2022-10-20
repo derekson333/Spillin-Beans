@@ -1,9 +1,9 @@
-const User = require('./user');
+const User = require('./User');
 const Recipe = require('./recipe');
 const Ingredient = require('./ingredient');
 const Instruction = require('./instruction');
 const IngredientMap = require('./ingredientMap');
-const InstructionMap = require('./instructionMap')
+const InstructionMap = require('./InstructionMap')
 
 User.hasMany(Recipe, {
   foreignKey: 'user_id',
