@@ -80,7 +80,7 @@ router.get('/recipes/:id', async (req, res) => {
         const recipe = recipeData.get({ plain: true});
 
         res.status(200).render('recipe', {
-            recipe,
+            ...recipe,
             logged_in: req.session.logged_in
         });
     } catch (err) {
