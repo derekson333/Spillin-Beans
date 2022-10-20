@@ -27,8 +27,7 @@ Instruction.belongsToMany(Recipe, {
   foreignKey: 'instruction_id'
 })
 Recipe.belongsToMany(Instruction, {
-  through: InstructionMap,
-  foreignKey: 'recipe_id'
+  through: InstructionMap
 });
 
 
