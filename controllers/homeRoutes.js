@@ -13,6 +13,11 @@ router.get('/', (req, res) => {
 // GET route to render the login page
 router.get('/login', (req, res) => {
     try {
+        if (req.session.logged_in) {
+            res.redirect(`/users/${req.session.user_id}`);
+            return;
+        };
+
         res.status(200).render('login', {});
     } catch (err) {
         res.status(500).json(err);
