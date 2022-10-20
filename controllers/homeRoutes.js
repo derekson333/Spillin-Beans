@@ -54,6 +54,17 @@ router.post('/login', async (req, res) => {
     }
 })
 
+// POST route to log out
+router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            res.render('homepage');
+        });
+    } else {
+        res.status(404).end();
+    }
+});
+
 // GET route to render the sign up page
 router.get('/signup', (req, res) => {
     try {
