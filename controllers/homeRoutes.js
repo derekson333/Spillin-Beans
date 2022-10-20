@@ -68,10 +68,21 @@ router.get('/users/:id', async (req, res) => {
 });
 
 // GET route to render the recipe view page by id
-router.get('/recipes/:id', (req, res) => {
+router.get('/recipes/:id', async (req, res) => {
     try {
-        const id = req.params.id;
-        res.status(200).render('recipe', {id});
+        const recipeData = await Recipe.findByPk(req.params.id, {
+            include: {
+                model: User,
+                attributes: ['user_name']
+            }
+        });
+        
+        const recipe = recipeData.get({ plain: true});
+
+        res.status(200).render('recipe', {
+            recipe,
+            logged_in: req.session.logged_in
+        });
     } catch (err) {
         res.status(500).json(err)
     }
