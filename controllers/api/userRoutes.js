@@ -16,7 +16,6 @@ router.get('/', async (req, res) => {
     };
 });
 
-
 // POST route to add a single user
 router.post('/', async (req, res) => {
     try {
