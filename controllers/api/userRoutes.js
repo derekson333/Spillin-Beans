@@ -33,6 +33,46 @@ router.post('/', async (req, res) => {
     };
 });
 
+// POST route to log a single user in
+router.post('/login', async (req, res) => {
+    try {
+        const userData = await User.findOne({ where: { user_name: req.body.user_name } });
+
+        if (!userData) {
+            res.status(400).json({ message: 'Incorrect username or password, please try again' });
+            return;
+        };
+
+        const validPassword = await userData.checkPassword(req.body.password);
+
+        if (!validPassword) {
+            res.status(400).json({ message: 'Incorrect username or password, please try again' });
+            return;
+        }
+
+        req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.logged_in = true;
+
+            res.json({ user: userData, message: 'You are now logged in!' });
+        });
+
+    } catch (err) {
+        res.status(400).json(err);
+    }
+})
+
+// POST route to log a single user out
+router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
+});
+
 // GET route to view a single user by id
 router.get('/:id', async (req, res) => {
     try {
