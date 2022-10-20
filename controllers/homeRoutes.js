@@ -28,6 +28,11 @@ router.get('/login', (req, res) => {
 // GET route to render the sign up page
 router.get('/signup', (req, res) => {
     try {
+        if (req.session.logged_in) {
+            res.redirect('/');
+            return;
+        };
+
         res.status(200).render('signup', {});
     } catch (err) {
         res.status(500).json(err);
