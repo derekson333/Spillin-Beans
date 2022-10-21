@@ -1,0 +1,97 @@
+<div class="container Aligner-item" style="margin-top: 35px">
+  <h3 class="title has-text-black has-text-centered">Spill Some Beans!</h3>
+  <div class="box">
+    <div class="field">
+      <label class="label">Recipe Name</label>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input" type="text" placeholder="What's it called?" />
+        <span class="icon is-small is-left">
+          <i class="mdi mdi-subtitles-outline"></i>
+        </span>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Recipe Ingredients</label>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input" type="text" placeholder="What's in it?" />
+        <span class="icon is-small is-left">
+          <i class="mdi mdi-notebook-edit"></i>
+        </span>
+        <input
+          id="addIngredientButton"
+          class="button is-small is-success is-pulled-right"
+          type="submit"
+          value="+"
+        />
+        <input
+          id="removeIngredientButton"
+          class="button is-small is-danger is-pulled-right"
+          type="submit"
+          value="-"
+        />
+        <br />
+        <br />
+        <div class="container">
+          <div>
+            <div class="table-container">
+              <table
+                class="table table is-bordered is-striped is-narrow is-hoverable"
+              >
+                <thead>
+                  <tr>
+                    <th>Ingredients Added:</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>1</th>
+                    <td>Bacon</td>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <td>Lettuce</td>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <td>Tomato</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="field">
+        <label class="label">Instructions</label>
+        <div class="control has-icons-left">
+          <textarea class="textarea" placeholder="How to make it!"></textarea>
+          <span class="icon is-small is-left">
+            <i class=""></i>
+          </span>
+        </div>
+      </div>
+      <label class="label">Upload a picture!</label>
+      <div class="file">
+        <label class="file-label">
+          <input class="file-input" type="file" name="resume" />
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="mdi mdi-upload"></i>
+            </span>
+            <span class="file-label"> Choose a file… </span>
+          </span>
+        </label>
+      </div>
+      <br />
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link">Submit</button>
+        </div>
+        <div class="control">
+          <button class="button is-link is-light">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
