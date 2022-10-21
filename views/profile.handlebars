@@ -12,7 +12,7 @@
                   <p class="title is-4">Email: {{email}}</p>
                   {{#if my_profile}}
                   <div class="tile is-parent is-3">
-                    <a class="tile is-child notification is-danger" href="/deleteuser">
+                    <a class="tile is-child notification is-danger" href="">
                       <strong>Delete Profile</strong>
                     </a>
                   </div>
@@ -29,7 +29,7 @@
 <div class="tile">
     {{#each recipes as |recipe| }}
     <div class="tile is-parent is-3">
-        <a href="/recipes/{{recipe.id}}" class="tile is-child notification is-primary">{{recipe.name}} by {{user.user_name}}</a>
+        <a href="/recipes/{{recipe.id}}" class="tile is-child notification is-primary">{{recipe.name}}</a>
     </div>
     {{/each}}
 </div>
