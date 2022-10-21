@@ -1,1 +1,32 @@
-<p>This is the body of the profile template for user {{id}}</p>
+User is{{session.user_id }}
+{{#if recipes.length}}
+  <div class="col-md-6 blog-list">
+    <h3>Current Recipes:</h3>
+
+    {{#each recipes as |recipe|}}
+    <div class="row mb-2">
+      <div class='card'>
+      <div class="card-header">
+        <h3><a href="/recipe/{{recipe.id}}">{{recipe.name}}</a></h3>
+      <span>You posted on {{format_date recipe.date_created}}</span>
+      </div>
+      <div class="card-body">
+        <p>
+          {{recipe.description}}
+        </p>
+      </div>
+      
+    </div>
+    {{#if id}}
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{recipe.id}}">DELETE</button>
+      </div>
+      {{/if}}
+    </div>
+    
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+
+<script src="/js/profile.js"></script>
