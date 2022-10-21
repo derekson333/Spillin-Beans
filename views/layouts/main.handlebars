@@ -14,19 +14,38 @@
 
 <body>
     <nav class="level">
-        <strong class="navbar-item">Home</strong>
-        <strong class="navbar-item">My Cook Book</strong>
-
+        <div class="navbar-start">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-primary" href="/">
+                        <strong class="navbar-item">Home</strong>    
+                    </a>
+                    {{#if logged_in}}
+                    <a class="button is-light" href="/users/{{user_id}}">
+                        <strong class="navbar-item">My Cook Book</strong>
+                    </a>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
         <p class="level-item">
             <img src="/img/beanlogo.png" alt="" style="height: 100px" />
         </p>
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a class="button is-primary">
+                    {{#if logged_in}}
+                    <a class="button is-light" id="logout">
+                        <strong>Log out</strong>
+                    </a>
+                    {{else}}
+                    <a class="button is-primary" href="/signup">
                         <strong>Sign up</strong>
                     </a>
-                    <a class="button is-light"> Log in </a>
+                    <a class="button is-light" href="/login">
+                        <strong>Log in</strong>
+                    </a>
+                    {{/if}}
                 </div>
             </div>
         </div>
@@ -34,7 +53,9 @@
     <main class="container">
         {{{body}}}
     </main>
-    
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 
 </html>
