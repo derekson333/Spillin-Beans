@@ -1,18 +1,41 @@
-body {
-    margin: 0%;
-    display: grid;
-    grid-template-columns: 20% 80%;
-    grid-template-rows: auto min-content;
+nav {
+  background-color: #f67570;
 }
 
-.banner {
-    grid-column: 1 /span 2;
-    background-color: red;
-    text-align: center;
-    height: 15vh;
+html {
+  background-color: #f2f6fa;
 }
 
-aside {
-    height: 85vh;
-    background-color: blue;
+.tile.is-vertical > .tile.is-child:not(:last-child) {
+  margin-bottom: 0.25rem !important;
+}
+
+.Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Aligner-item {
+  max-width: 50%;
+}
+
+.Aligner-item--top {
+  align-self: flex-start;
+}
+
+.Aligner-item--bottom {
+  align-self: flex-end;
+}
+
+.hero.is-success {
+  background: #f2f6fa;
+}
+
+#loginContainer {
+  margin-bottom: 200px;
+}
+
+#mainColumn {
+  height: 100%;
 }
