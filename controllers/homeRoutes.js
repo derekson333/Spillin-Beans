@@ -65,6 +65,18 @@ router.get('/results', withAuth, (req, res) => {
     }
 });
 
+// GET route to render the add recipe form page
+router.get('/addrecipe', withAuth, (req, res) => {
+    try {
+        res.status(200).render('recipeform', {
+            logged_in: req.session.logged_in,
+            user_id: req.session.user_id
+        })
+    } catch (err) {
+        res.json(err)
+    }
+});
+
 // GET route to render the user profile page by id
 router.get('/users/:id', withAuth, async (req, res) => {
     try {
