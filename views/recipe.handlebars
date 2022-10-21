@@ -153,28 +153,15 @@
           <div class="media-content has-text-centered">
             <div class="content">
               <p>
-                <h3>Recipe Title</h3>
+                <h3>{{name}}</h3>
                 <br />
-                <small>Recipe Creator,</small>
-                <small>Date Created</small>
-                <br />
-                <br />
+                <small>{{user.user_name}},</small>
+                <small>{{date_created}}</small>
                 <br />
                 <br />
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                efficitur sit amet massa fringilla egestas. Nullam condimentum
-                luctus turpis. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Aenean efficitur sit amet massa fringilla
-                egestas. Nullam condimentum luctus turpis. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit. Aenean efficitur sit amet
-                massa fringilla egestas. Nullam condimentum luctus turpis. Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                efficitur sit amet massa fringilla egestas. Nullam condimentum
-                luctus turpis. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Aenean efficitur sit amet massa fringilla
-                egestas. Nullam condimentum luctus turpis. Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit. Aenean efficitur sit amet
-                massa fringilla egestas. Nullam condimentum luctus turpis.
+                <br />
+                <br />
+                {{description}}
               </p>
 
             </div>
@@ -188,18 +175,27 @@
           </tr>
         </thead>
         <tbody>
+          {{#each ingredients as |ingredient|}}
           <tr>
-            <th>1</th>
-            <td>Bacon</td>
+            <th></th>
+            <td>{{ingredient.name}}</td>
           </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <table class="table table is-bordered is-striped is-narrow is-hoverable">
+        <thead>
           <tr>
-            <th>2</th>
-            <td>Lettuce</td>
+            <th>Instructions:</th>
           </tr>
+        </thead>
+        <tbody>
+          {{#each instructions as |instruction|}}
           <tr>
-            <th>3</th>
-            <td>Tomato</td>
+            <th></th>
+            <td>{{instruction.name}}</td>
           </tr>
+          {{/each}}
         </tbody>
       </table>
     </div>
