@@ -32,6 +32,69 @@ router.post('/', async (req, res) => {
     };
 });
 
+router.post('/login', async (req, res) => {
+    try {
+      const userData = await User.findOne({
+        where: {
+          user_name: req.body.user_name
+        }
+      });
+  
+      // If the user data is not found
+  
+      if (!userData) {
+        res
+          .status(400)
+          .json({
+            message: 'Incorrect user name or password, please try again'
+          });
+        return;
+      }
+  
+      const validPassword = await userData.checkPassword(req.body.password);
+  
+      // If the password is not valid based on the method call on the previous line
+  
+      if (!validPassword) {
+        res
+          .status(400)
+          .json({
+            message: 'Incorrect user name or password, please try again'
+          });
+        return;
+      }
+      // Saves logged in user_id and login status to the session
+  
+      req.session.save(() => {
+        req.session.user_id = userData.id;
+        req.session.logged_in = true;
+
+        
+  
+        res.json({
+          user: userData,
+          message: 'You are now logged in!'
+        });
+      });
+
+  
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  });
+  
+  // POST route for logging a user out
+  
+  router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    } else {
+      res.status(404).end();
+    }
+  });
+
 // GET route to view a single user by id
 router.get('/:id', async (req, res) => {
     try {

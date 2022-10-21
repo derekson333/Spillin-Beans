@@ -22,11 +22,9 @@ Recipe.init({
     },
     prep_time: {
         type: DataTypes.FLOAT,
-        allowNull: false,
     },
     cook_time: {
         type: DataTypes.FLOAT,
-        allowNull: false,
     },
     date_created: {
         type: DataTypes.DATE,
