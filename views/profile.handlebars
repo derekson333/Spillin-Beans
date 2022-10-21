@@ -1,8 +1,8 @@
-User is{{session.user_id }}
+User is{{user_id}}
 {{#if recipes.length}}
   <div class="col-md-6 blog-list">
     <h3>Current Recipes:</h3>
-
+    <div class="recipe-list">
     {{#each recipes as |recipe|}}
     <div class="row mb-2">
       <div class='card'>
@@ -17,14 +17,15 @@ User is{{session.user_id }}
       </div>
       
     </div>
-    {{#if id}}
+
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{recipe.id}}">DELETE</button>
+        <button id="delete-recipe"class="btn btn-sm btn-danger" data-id="{{recipe.id}}">DELETE</button>
       </div>
-      {{/if}}
+ </div>
     </div>
     
     {{/each}}
+    </div>
   </div>
   {{/if}}
 </div>
