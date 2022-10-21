@@ -16,7 +16,12 @@ router.get('/', async (req, res) => {
         });
         const recipes = recipesData.map((recipe) => recipe.get({ plain: true }))
 
-        res.status(200).render('homepage', { users, recipes });
+        res.status(200).render('homepage', { 
+            users, 
+            recipes,
+            logged_in: req.session.logged_in,
+            user_id: req.session.user_id
+        });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -30,7 +35,7 @@ router.get('/login', (req, res) => {
             return;
         };
 
-        res.status(200).render('login', {});
+        res.status(200).render('login');
     } catch (err) {
         res.status(500).json(err);
     }
