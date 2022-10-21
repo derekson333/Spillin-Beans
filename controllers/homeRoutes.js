@@ -80,7 +80,8 @@ router.get('/users/:id', withAuth, async (req, res) => {
         res.status(200).render('profile', { 
             ...user,
             logged_in: req.session.logged_in,
-            user_id: req.session.user_id
+            user_id: req.session.user_id,
+            my_profile: req.params.id == req.session.user_id
         });
     } catch (err) {
         res.status(500).json(err)
