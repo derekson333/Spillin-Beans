@@ -76,7 +76,8 @@ router.get('/users/:id', withAuth, async (req, res) => {
 
         res.status(200).render('profile', { 
             ...user,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+            user_id: req.session.user_id
         });
     } catch (err) {
         res.status(500).json(err)
@@ -104,14 +105,11 @@ router.get('/recipes/:id', withAuth, async (req, res) => {
         });
         
         const recipe = recipeData.get({ plain: true});
-        const ingredients = recipe.ingredients;
-        const instructions = recipe.instructions;
 
         res.status(200).render('recipe', {
             ...recipe,
-            ingredients,
-            instructions,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+            user_id: req.session.user_id
         });
     } catch (err) {
         res.status(500).json(err)
