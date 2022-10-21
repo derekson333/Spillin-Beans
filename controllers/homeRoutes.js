@@ -69,6 +69,9 @@ router.get('/results', withAuth, (req, res) => {
 router.get('/users/:id', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.params.id, {
+            include: {
+                model: Recipe
+            },
             attributes: { exclude: ['password'] },
         });
 

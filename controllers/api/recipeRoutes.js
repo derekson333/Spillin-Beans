@@ -91,7 +91,7 @@ router.put('/:id', async (req, res) => {
         },
       })
         .then((recipe) => {
-          // find all associated tags from IngredientMap
+          // find all associated ingredients from IngredientMap
           return IngredientMap.findAll({ where: { recipe_id: req.params.id } });
         })
         .then((currentIngredients) => {
@@ -124,7 +124,7 @@ router.put('/:id', async (req, res) => {
         });
     });
     
-// DELETE route to delete a single user by id
+// DELETE route to delete a recipe
 router.delete('/:id', async (req, res) => {
     try {
         const recipeData = await Recipe.destroy({
