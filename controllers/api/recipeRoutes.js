@@ -65,7 +65,12 @@ router.post('/', (req, res) => {
 // GET route to view a single recipe
 router.get('/:id', async (req, res) => {
     try {
-        const recipeData = await Recipe.findByPk(req.params.id);
+        const recipeData = await Recipe.findByPk(req.params.id, {
+            include: [
+                { model: Ingredient, through: IngredientMap },
+                { model: Instruction, through: InstructionMap }
+           ]
+        });
 
         if (!recipeData) {
             res.status(404).json('No recipe found with that id');

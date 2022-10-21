@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Recipe } = require('../models');
+const { User, Recipe, Ingredient, IngredientMap, Instruction, InstructionMap } = require('../models');
 const withAuth = require('../utils/auth')
 
 // GET route to render the homepage
@@ -76,7 +76,8 @@ router.get('/users/:id', withAuth, async (req, res) => {
 
         res.status(200).render('profile', { 
             ...user,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+            user_id: req.session.user_id
         });
     } catch (err) {
         res.status(500).json(err)
@@ -87,17 +88,28 @@ router.get('/users/:id', withAuth, async (req, res) => {
 router.get('/recipes/:id', withAuth, async (req, res) => {
     try {
         const recipeData = await Recipe.findByPk(req.params.id, {
-            include: {
-                model: User,
-                attributes: ['user_name']
-            }
+            include: [
+                {
+                    model: User,
+                    attributes: ['user_name']
+                },
+                {
+                    model: Ingredient,
+                    through: IngredientMap                
+                },
+                {
+                    model: Instruction,
+                    through: InstructionMap
+                }
+            ],
         });
         
         const recipe = recipeData.get({ plain: true});
 
         res.status(200).render('recipe', {
             ...recipe,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+            user_id: req.session.user_id
         });
     } catch (err) {
         res.status(500).json(err)
