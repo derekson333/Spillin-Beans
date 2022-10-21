@@ -83,17 +83,16 @@ router.post('/login', async (req, res) => {
     }
   });
   
-  // POST route for logging a user out
-  
-  router.post('/logout', (req, res) => {
-    if (req.session.logged_in) {
-      req.session.destroy(() => {
-        res.status(204).end();
-      });
-    } else {
-      res.status(404).end();
-    }
-  });
+// POST route for logging a user out
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
 
 // GET route to view a single user by id
 router.get('/:id', async (req, res) => {
