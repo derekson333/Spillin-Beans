@@ -3,9 +3,20 @@ const { User, Recipe } = require('../models');
 const withAuth = require('../utils/auth')
 
 // GET route to render the homepage
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        res.status(200).render('homepage', {});
+        const usersData = await User.findAll();
+        const users = usersData.map((user) => user.get({ plain: true }))
+
+        const recipesData = await Recipe.findAll({
+            include: {
+                model: User,
+                attributes: ['user_name']
+            }
+        });
+        const recipes = recipesData.map((recipe) => recipe.get({ plain: true }))
+
+        res.status(200).render('homepage', { users, recipes });
     } catch (err) {
         res.status(500).json(err);
     }
