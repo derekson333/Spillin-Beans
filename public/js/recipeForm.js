@@ -9,8 +9,7 @@ const newFormHandler = async (event) => {
     if (name  && description) {
       const response = await fetch(`/api/recipes`, {
         method: 'POST',
-        body: JSON.stringify({ name,  description, prep_time, cook_time, ingredients, instructions }),
-        headers: {
+        body: JSON.stringify({ name, description, prep_time, cook_time, ingredients, instructions, img }), headers: {
           'Content-Type': 'application/json',
         },
       });
