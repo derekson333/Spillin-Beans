@@ -1,6 +1,37 @@
+
+const createIngredient = document.querySelector("#createIngredient")
+const addIngredient = document.querySelector("#addIngredientButton")
+
+
+
+const newIngredient = async () => {
+  
+  const ingredientIn = document.querySelector("#ingredientInput").value.trim()
+  const response = await fetch('/api/ingredients', {
+    method: 'POST',
+    body: JSON.stringify({
+        ingredientIn,
+    
+    }),
+    headers: {
+        'Content-Type': 'application/json'
+    },
+});
+if (response.ok) {
+  alert("New ingredient added to our database");
+} else {
+  alert(response.statusText);
+}
+}
+createIngredient.addEventListener('click', newIngredient())
+
+
+
+
+
 const newFormHandler = async (event) => {
     event.preventDefault();
-  
+
     const name = document.querySelector('#recipe-name').value.trim();
     const description = document.querySelector('#recipe-desc').value.trim();
   
@@ -23,10 +54,10 @@ const newFormHandler = async (event) => {
     }
   };
   
-  // Function that handles deleting a recipe
+
   
  
   document
-    .querySelector('.new-recipe-form')
-    .addEventListener('submit', newFormHandler);
+    .querySelector('#create-recipe')
+    .addEventListener('click', newFormHandler);
   
