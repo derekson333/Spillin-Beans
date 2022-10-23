@@ -66,9 +66,15 @@ router.get('/results', withAuth, (req, res) => {
 });
 
 // GET route to render the add recipe form page
-router.get('/addrecipe', withAuth, (req, res) => {
+router.get('/addrecipe', withAuth, async (req, res) => {
     try {
+        const ingredientData = await Ingredient.findAll()
+        const instructionData = await Instruction.findAll()
+        const ingredients = ingredientData.map((ingredient) => ingredient.get({ plain: true }))
+        const instructions =instructionData.map((instruction) => instruction.get({ plain: true }))
         res.status(200).render('recipeform', {
+            ingredients,
+            instructions,
             logged_in: req.session.logged_in,
             user_id: req.session.user_id
         })
