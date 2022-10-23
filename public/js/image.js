@@ -1,7 +1,3 @@
-// import * as filestack from 'filestack-js';
-// const client = filestack.init('A2Cms4wvRRnqHepwihpV0z');
-
-// client.picker().open();
 const apikey = 'A2Cms4wvRRnqHepwihpV0z';
 const client = filestack.init(apikey);
 const options = {
@@ -11,12 +7,10 @@ const options = {
   onUploadDone: (res) => console.log(res),
 };
 
-
 window.addEventListener('DOMContentLoaded', function () {
     client.picker(options).open();
   });
   
-
 
 // needs to go into handlebars page where this is implemented
 {/* <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
