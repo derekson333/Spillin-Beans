@@ -2,6 +2,7 @@
 // const client = filestack.init('A2Cms4wvRRnqHepwihpV0z');
 
 // client.picker().open();
+const uploadButton = document.getElementById('upload')
 const apikey = 'A2Cms4wvRRnqHepwihpV0z';
 const client = filestack.init(apikey);
 const options = {
@@ -12,7 +13,7 @@ const options = {
 };
 
 
-window.addEventListener('upload', function () {
+uploadButton.addEventListener('click', function () {
     client.picker(options).open();
   });
   
