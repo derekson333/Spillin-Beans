@@ -109,6 +109,13 @@ router.get('/users/:id', withAuth, async (req, res) => {
 // GET route to render the recipe view page by id
 router.get('/recipes/:id', withAuth, async (req, res) => {
     try {
+        // Get ALL recipes
+        const recipesData = await Recipe.findAll({
+            include: {
+                model: User,
+                attributes: ['user_name']
+            }
+        });
         const recipeData = await Recipe.findByPk(req.params.id, {
             include: [
                 {
@@ -125,11 +132,12 @@ router.get('/recipes/:id', withAuth, async (req, res) => {
                 }
             ],
         });
-        
+        const recipes = recipesData.map((recipe) => recipe.get({ plain: true }))
         const recipe = recipeData.get({ plain: true});
 
         res.status(200).render('recipe', {
-            ...recipe,
+            ...recipe, 
+            recipes,
             logged_in: req.session.logged_in,
             user_id: req.session.user_id
         });

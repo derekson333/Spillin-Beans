@@ -6,12 +6,14 @@
         <div class="tile is-vertical">
           <div class="tile">
             <div class="tile is-parent is-vertical">
+              {{#each recipes as |recipe|}}
+              <a href="/recipes/{{recipe.id}}">
               <article class="tile is-child box">
                 <article class="media">
                   <div class="media-left">
                     <figure class="image is-64x64">
                       <img
-                        src="https://bulma.io/images/placeholders/128x128.png"
+                        src={{recipe.img}}
                         alt="Image"
                       />
                     </figure>
@@ -19,14 +21,16 @@
                   <div class="media-content">
                     <div class="content">
                       <p>
-                        <strong>Recipe Title</strong>
+                        <strong>Title: {{recipe.name}}</strong>
                         <br />
-                        <small>Creator Username</small>
+                        <small>Creator: {{recipe.user.user_name}}</small>
                       </p>
                     </div>
                   </div>
                 </article>
               </article>
+              </a>
+              {{/each}}
               <article class="tile is-child box">
                 <article class="media">
                   <div class="media-left">
@@ -144,7 +148,7 @@
         <div class="media-left">
           <figure class="image is-128x128">
             <img
-              src="https://bulma.io/images/placeholders/128x128.png"
+              src={{img}}
               alt="Image"
             />
           </figure>
@@ -156,7 +160,7 @@
                 <h3>{{name}}</h3>
                 <br />
                 <small>{{user.user_name}},</small>
-                <small>{{date_created}}</small>
+                <small>{{format_date date_created}}</small>
                 <br />
                 <br />
                 <br />
@@ -177,7 +181,6 @@
         <tbody>
           {{#each ingredients as |ingredient|}}
           <tr>
-            <th></th>
             <td>{{ingredient.name}}</td>
           </tr>
           {{/each}}
@@ -192,7 +195,6 @@
         <tbody>
           {{#each instructions as |instruction|}}
           <tr>
-            <th></th>
             <td>{{instruction.name}}</td>
           </tr>
           {{/each}}
