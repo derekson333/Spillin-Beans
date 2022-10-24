@@ -18,163 +18,116 @@
           <i class="mdi mdi-notebook-edit"></i>
         </span>
         <label class="label">Prep Time</label>
-        <div class="control has-icons-left has-icons-right">
-          <input id="prep-time" class="input" type="text" placeholder="How long to prep?" />
-          <span class="icon is-small is-left">
-            <i class="mdi mdi-notebook-edit"></i>
-          </span>
-          <label class="label">Cook Time</label>
-          <div class="control has-icons-left has-icons-right">
-            <input id="cook-time" class="input" type="text" placeholder="How long to cook?" />
-            <span class="icon is-small is-left">
-              <i class="mdi mdi-notebook-edit"></i>
-            </span>
-            <label class="label">Recipe Ingredients</label>
-            <div class="control has-icons-left has-icons-right">
-              <input id="ingredientInput" class="input" type="text" placeholder="What's in it?" />
-              <span class="icon is-small is-left">
-                <i class="mdi mdi-notebook-edit"></i>
-              </span>
-              <input id="addIngredientButton" class="button is-small is-success is-pulled-right" type="submit"
-                value="+" />
-              <input id="removeIngredientButton" class="button is-small is-danger is-pulled-right" type="submit"
-                value="-" />
-              <!-- Bulma dropdown instead of HTML dropdown -->
-              <div class="level">
-                <div class="level-item level-right">
-                  <div class="dropdown">
-                    <div class="dropdown-trigger">
-                      <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                        <span>Add an ingredient</span>
-                        <span class="icon is-right">
-                          <i class="mdi mdi-dark mdi-menu-down"></i>
-                        </span>
-                      </button>
-                    </div>
-                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                      <div class="dropdown-content">
-                        <!-- Add onclick JS using HREF to add ingredient to ingredient field -->
-                        <a href="javascript:functiontoaddingredients()" class="dropdown-item">
-                          Tomatoes
-                        </a>
-                        <a href="javascript:functiontoaddingredients()" class="dropdown-item">
-                          Beans
-                        </a>
-                        <a href="javascript:functiontoaddingredients()" class="dropdown-item">
-                          Salt
-                        </a>
-                        <a href="javascript:functiontoaddingredients()" class="dropdown-item">
-                          Bacon
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="container">
-                <div>
-                  <div class="table-container">
-                    <table class="table table is-bordered is-striped is-narrow is-hoverable">
-                      <thead>
-                        <tr>
-                          <th>Ingredients Added:</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th>1</th>
-                          <td>Bacon</td>
-                        </tr>
-                        <tr>
-                          <th>2</th>
-                          <td>Lettuce</td>
-                        </tr>
-                        <tr>
-                          <th>3</th>
-                          <td>Tomato</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <br />
-            <div class="field">
-              <label class="label">Instructions</label>
-              <div class="control has-icons-left">
-                <textarea id="instructionInput" class="textarea" placeholder="How to make it!"></textarea>
-                <span class="icon is-small is-left">
-                  <i class=""></i>
-                </span>
-              </div>
-              <input id="addInstructionButton" class="button is-small is-success is-pulled-right" type="submit"
-                value="+" />
-              <input id="removeInstructionButton" class="button is-small is-danger is-pulled-right" type="submit"
-                value="-" />
+      <div class="control has-icons-left has-icons-right">
+        <input id="prep-time" class="input" type="text" placeholder="How long to prep?" />
+        <span class="icon is-small is-left">
+          <i class="mdi mdi-notebook-edit"></i>
+        </span>
+        <label class="label">Cook Time</label>
+      <div class="control has-icons-left has-icons-right">
+        <input id="cook-time" class="input" type="text" placeholder="How long to cook?" />
+        <span class="icon is-small is-left">
+          <i class="mdi mdi-notebook-edit"></i>
+        </span>
+      <label class="label">Recipe Ingredients</label>
+      <div class="control has-icons-left has-icons-right">
+        <input id="ingredientInput" class="input" type="text" placeholder="What's in it?" />
+        <span class="icon is-small is-left">
+          <i class="mdi mdi-notebook-edit"></i>
+        </span>
 
-              <div class="level">
-                <div class="level-item level-right">
-                  <!-- Bulma dropdown instead of HTML dropdown -->
-                  <div class="dropdown">
-                    <div class="dropdown-trigger">
-                      <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                        <span>Add an instruction</span>
-                        <span class="icon is-right">
-                          <i class="mdi mdi-dark mdi-menu-down"></i>
-                        </span>
-                      </button>
-                    </div>
-                    <!-- Add onclick JS using HREF to add ingredient to ingredient field -->
-                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                      <div class="dropdown-content">
-                        <a href="javascript:functiontoaddinstructions()" class="dropdown-item">
-                          Stir vigorously
-                        </a>
-                        <a href="javascript:functiontoaddinstructions()" class="dropdown-item">
-                          Blend until smooth
-                        </a>
-                        <a href="javascript:functiontoaddinstructions()" class="dropdown-item">
-                          Slow roast for three hours at 350
-                        </a>
-                        <a href="javascript:functiontoaddinstructions()" class="dropdown-item">
-                          Buy it
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <label class="label">Upload a picture!</label>
-            <div class="file">
-              <label class="file-label">
-                <button class="file-input" type="file"></button>
-                <span class="file-cta" id="upload">
-                  <span class="file-icon">
-                    <i class="mdi mdi-upload"></i>
-                  </span>
-                  <span class="file-label"> Choose a file… </span>
-                </span>
-              </label>
-            </div>
-            <br />
-            <div class="field is-grouped">
-              <div class="control">
-                <button id="create-recipe" class="button is-link">
-                  Submit
-                </button>
-              </div>
-              <div class="control">
-                <button class="button is-link is-light">Cancel</button>
-              </div>
+        <button id="createIngredient">Create ingredient</button>
+        <input id="addIngredientButton" class="button is-small is-success is-pulled-right" type="submit" value="+" />
+        <input id="removeIngredientButton" class="button is-small is-danger is-pulled-right" type="submit" value="-" />
+        <label for="ingredientSearch">Choose an ingredient:</label>
+        <select name="ingredientData" id="ingredientData">
+          {{#each ingredients as |ingredient|}}
+          <option value={{ingredient.id}}>{{ingredient.name}}</option>
+          {{/each}}
+        </select>
+
+
+
+
+        <br />
+        <br />
+        <div class="container">
+          <div>
+            <div class="table-container">
+              <table class="table table is-bordered is-striped is-narrow is-hoverable">
+                <thead>
+                  <tr>
+                    {{!-- JS will add the th and td elements --}}
+                    <th>Ingredients Added:</th>
+                  </tr>
+                </thead>
+                <tbody id="currentIngredients">
+                </tbody>
+              </table>
             </div>
           </div>
+        </div>
+      </div>
+      <br />
+      <div class="field">
+        <label class="label">Instructions</label>
+        <div class="control has-icons-left">
+          <textarea id="instructionInput" class="textarea" placeholder="How to make it!"></textarea>
+          <span class="icon is-small is-left">
+            <i class=""></i>
+          </span>
+        </div>
+        <button id="createInstruction">Create instruction</button>
+        <input id="addInstructionButton" class="button is-small is-success is-pulled-right" type="submit" value="+" />
+        <input id="removeInstructionButton" class="button is-small is-danger is-pulled-right" type="submit" value="-" />
+        <label for="instructionData">Choose an instruction:</label>
+        <select name="instructionData" id="instructionData">
+          {{#each instructions as |instruction|}}
+          <option value={{instruction.id}}>{{instruction.name}}</option>
+          {{/each}}
+        </select>
+        <div class="container">
+          <div>
+            <div class="table-container">
+              <table class="table table is-bordered is-striped is-narrow is-hoverable">
+                <thead>
+                  <tr>
+                    {{!-- JS will add the th and td elements --}}
+                    <th>Instructions Added:</th>
+                  </tr>
+                </thead>
+                <tbody id="currentInstructions">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <label class="label">Upload a picture!</label>
+      <div class="file">
+        <label class="file-label">
+          <button class="file-input" type="file"id="upload"></button>
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="mdi mdi-upload"></i>
+            </span>
+            <span class="file-label"> Choose a file… </span>
+          </span>
+        </label>
+      </div>
+      <br />
+      <div class="field is-grouped">
+        <div class="control">
+          <button id='create-recipe' class="button is-link">Submit</button>
+        </div>
+        <div class="control">
+          <button class="button is-link is-light">Cancel</button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <script src="/js/recipeForm.js"></script>

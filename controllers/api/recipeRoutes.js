@@ -67,8 +67,8 @@ router.get('/:id', async (req, res) => {
     try {
         const recipeData = await Recipe.findByPk(req.params.id, {
             include: [
-                { model: Ingredient, through: IngredientMap },
-                { model: Instruction, through: InstructionMap }
+                { model: Ingredient, through: IngredientMap, as: 'ingredients' },
+                { model: Instruction, through: InstructionMap, as: 'instructions'}
            ]
         });
 

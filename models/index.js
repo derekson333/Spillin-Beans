@@ -14,6 +14,7 @@ Recipe.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
+
 Ingredient.belongsToMany(Recipe, {
   through: IngredientMap
 })
