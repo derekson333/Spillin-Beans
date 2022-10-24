@@ -1,9 +1,17 @@
 
 const createIngredient = document.querySelector("#createIngredient")
 const addIngredient = document.querySelector("#addIngredientButton")
+
 const createInstruction = document.querySelector("#createInstruction")
 const addInstruction = document.querySelector("#addInstructionButton")
+const ingredientArr = []
+const instructionArr = []
 
+
+addIngredient.addEventListener('click', function() {
+  const chosenIngredient = document.querySelector("#ingredientSearch").value.trim()
+  ingredientArr.unshift(chosenIngredient)
+console.log(ingredientArr)})
 createIngredient.addEventListener('click', async function(){
   const name = document.querySelector("#ingredientInput").value.trim()
   const response = await fetch(`/api/ingredients`, {

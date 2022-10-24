@@ -31,6 +31,9 @@ Recipe.init({
         allowNull: false,
         defaultValue: DataTypes.NOW,
     },
+    img: {
+        type: DataTypes.STRING,
+    },
     user_id: {
         type: DataTypes.INTEGER,
         references: {
