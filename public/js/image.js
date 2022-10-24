@@ -7,7 +7,10 @@ const options = {
   onUploadDone: (res) => console.log(res),
 };
 
-window.addEventListener('DOMContentLoaded', function () {
+// Event listener to open file picker for image
+document
+.querySelector('.new-recipe-form')  
+.addEventListener('submit', function () {
     client.picker(options).open();
   });
   
