@@ -15,7 +15,7 @@ This application allows users to create and share recipes including ingredients,
 The application is deployed [here](http://spillin-beans.herokuapp.com/).
 
 ## What It Looks Like
-![image](https://user-images.githubusercontent.com/104117927/197444906-17d0a20e-ae08-4ebc-9f83-6fbf95cef228.png)
+![image](https://cdn.filestackcontent.com/zsHxCKyDQz2UMsTEaw90)
 
 
 ## How It Works
