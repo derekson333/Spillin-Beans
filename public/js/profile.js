@@ -1,8 +1,9 @@
+const deleteButton = document.getElementById('delete')
 const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/api/recipes/${id}`, {
+      const response = await fetch(`/api/users/${id}`, {
         method: 'DELETE',
       });
   
@@ -14,6 +15,4 @@ const delButtonHandler = async (event) => {
     }
   };
   
-  document
-  .querySelector('.recipe-list')
-  .addEventListener('click', delButtonHandler);
+deleteButton.addEventListener('click', delButtonHandler);
