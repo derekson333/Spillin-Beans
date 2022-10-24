@@ -1,17 +1,15 @@
 
 const createIngredient = document.querySelector("#createIngredient")
 const addIngredient = document.querySelector("#addIngredientButton")
+const createInstruction = document.querySelector("#createInstruction")
+const addInstruction = document.querySelector("#addInstructionButton")
 
-
-
-const newIngredient = async () => {
-  
-  const ingredientIn = document.querySelector("#ingredientInput").value.trim()
-  const response = await fetch('/api/ingredients', {
+createIngredient.addEventListener('click', async function(){
+  const name = document.querySelector("#ingredientInput").value.trim()
+  const response = await fetch(`/api/ingredients`, {
     method: 'POST',
     body: JSON.stringify({
-        ingredientIn,
-    
+        name,
     }),
     headers: {
         'Content-Type': 'application/json'
@@ -22,8 +20,26 @@ if (response.ok) {
 } else {
   alert(response.statusText);
 }
+})
+
+createInstruction.addEventListener('click', async function(){
+  const name = document.querySelector("#instructionInput").value.trim()
+  const response = await fetch(`/api/instructions`, {
+    method: 'POST',
+    body: JSON.stringify({
+        name,
+    }),
+    headers: {
+        'Content-Type': 'application/json'
+    },
+});
+if (response.ok) {
+  alert("New instruction added to our database");
+  location.reload()
+} else {
+  alert(response.statusText);
 }
-createIngredient.addEventListener('click', newIngredient())
+})
 
 
 
