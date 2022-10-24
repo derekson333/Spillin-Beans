@@ -5,15 +5,15 @@ const withAuth = require('../utils/auth')
 // GET route to render the homepage
 router.get('/', async (req, res) => {
     try {
-        const usersData = await User.findAll();
+        const usersData = await (await User.findAll()).slice(0, 4);
         const users = usersData.map((user) => user.get({ plain: true }))
 
-        const recipesData = await Recipe.findAll({
+        const recipesData = await (await Recipe.findAll({
             include: {
                 model: User,
                 attributes: ['user_name']
             }
-        });
+        })).slice(0, 4);
         const recipes = recipesData.map((recipe) => recipe.get({ plain: true }))
         
         res.status(200).render('homepage', { 
@@ -125,11 +125,21 @@ router.get('/recipes/:id', withAuth, async (req, res) => {
                 }
             ],
         });
-        
         const recipe = recipeData.get({ plain: true});
+
+        const trendingData = await (await Recipe.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['user_name'],
+                }
+            ]
+        })).slice(0, 6);
+        const trendings = trendingData.map((trending) => trending.get({ plain: true }));
 
         res.status(200).render('recipe', {
             ...recipe,
+            trendings,
             logged_in: req.session.logged_in,
             user_id: req.session.user_id
         });
