@@ -1,11 +1,15 @@
-# UNH-Group5-Project2
-
 # Spillin' Beans
 This application allows users to create and share recipes including ingredients, instructions, and a picture of their dish.
 
-* Users are able to create secure accounts and store their recipes in their own digital cookbook
-* Recipes are shared throughout the site and can be freely browsed
-* Recipes include a name, description, cook time, prep time, ingredients, a picture, and instructions to make it
+## User Stories
+
+* As a user, I want to load the website and preview other registered users recipes.
+
+* As a user, I want to be able to create a secure account.
+
+* As a registered user, I want to create and post my own recipes to the site including details about the recipe and a picture.
+
+* As a registered user, I want to be able to view other registered users recipes.
 
 ## Where to Find It
 The application is deployed [here](http://spillin-beans.herokuapp.com/).
