@@ -33,13 +33,14 @@ router.post('/', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
+  // localStorage.setItem('userId', req.body.user_id)
     try {
       const userData = await User.findOne({
         where: {
           user_name: req.body.user_name
         }
       });
-  
+      
       // If the user data is not found
   
       if (!userData) {
@@ -85,8 +86,10 @@ router.post('/login', async (req, res) => {
   
 // POST route for logging a user out
 router.post('/logout', (req, res) => {
+  // localStorage.clear()
   if (req.session.logged_in) {
     req.session.destroy(() => {
+     
       res.status(204).end();
     });
   } else {

@@ -4,13 +4,31 @@
     <div class="field">
       <label class="label">Recipe Name</label>
       <div class="control has-icons-left has-icons-right">
-        <input class="input" type="text" placeholder="What's it called?" />
+        <input id="recipe-name" class="input" type="text" placeholder="What's it called?" />
         <span class="icon is-small is-left">
           <i class="mdi mdi-subtitles-outline"></i>
         </span>
       </div>
     </div>
     <div class="field">
+      <label class="label">Recipe Description</label>
+      <div class="control has-icons-left has-icons-right">
+        <input id="recipe-desc" class="input" type="text" placeholder="What is it?" />
+        <span class="icon is-small is-left">
+          <i class="mdi mdi-notebook-edit"></i>
+        </span>
+        <label class="label">Prep Time</label>
+      <div class="control has-icons-left has-icons-right">
+        <input id="prep-time" class="input" type="text" placeholder="How long to prep?" />
+        <span class="icon is-small is-left">
+          <i class="mdi mdi-notebook-edit"></i>
+        </span>
+        <label class="label">Cook Time</label>
+      <div class="control has-icons-left has-icons-right">
+        <input id="cook-time" class="input" type="text" placeholder="How long to cook?" />
+        <span class="icon is-small is-left">
+          <i class="mdi mdi-notebook-edit"></i>
+        </span>
       <label class="label">Recipe Ingredients</label>
       <div class="control has-icons-left has-icons-right">
         <input id="ingredientInput" class="input" type="text" placeholder="What's in it?" />
@@ -22,10 +40,10 @@
         <input id="addIngredientButton" class="button is-small is-success is-pulled-right" type="submit" value="+" />
         <input id="removeIngredientButton" class="button is-small is-danger is-pulled-right" type="submit" value="-" />
         <label for="ingredientSearch">Choose an ingredient:</label>
-        <input list="ingredientData" name="ingredientSearch">
+        <input list="ingredientData"id="ingredientIn" name="ingredientSearch">
         <datalist id="ingredientData">
           {{#each ingredients as |ingredient|}}
-          <option data-id={{ingredient.id}} value={{ingredient.name}}></option>
+          <option value={{ingredient.id}}>{{ingredient.name}}</option>
           {{/each}}
         </datalist>
 

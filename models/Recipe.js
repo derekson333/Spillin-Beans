@@ -21,10 +21,10 @@ Recipe.init({
         type: DataTypes.STRING,
     },
     prep_time: {
-        type: DataTypes.FLOAT,
+        type: DataTypes.STRING,
     },
     cook_time: {
-        type: DataTypes.FLOAT,
+        type: DataTypes.STRING,
     },
     date_created: {
         type: DataTypes.DATE,
