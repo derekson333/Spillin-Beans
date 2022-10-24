@@ -26,6 +26,9 @@ Recipe.init({
     cook_time: {
         type: DataTypes.FLOAT,
     },
+    img: {
+        type: DataTypes.STRING,
+    },
     date_created: {
         type: DataTypes.DATE,
         allowNull: false,

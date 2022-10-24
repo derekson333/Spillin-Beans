@@ -12,7 +12,7 @@ const options = {
 };
 
 
-window.addEventListener('DOMContentLoaded', function () {
+window.addEventListener('upload', function () {
     client.picker(options).open();
   });
   
