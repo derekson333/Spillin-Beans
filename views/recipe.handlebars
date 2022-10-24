@@ -1,29 +1,26 @@
 <div class="columns">
-  <section class="column">
+  <section class="column is-one-fifth">
     <div class="box">
       <div class="title">Trending Recipes</div>
       <div class="tile is-ancestor">
         <div class="tile is-vertical">
           <div class="tile">
             <div class="tile is-parent is-vertical">
-              {{#each trendings as |trending|}}
-              <a href="/recipes/{{trending.id}}">
+              {{#each recipes as |recipe|}}
+              <a href="/recipes/{{recipe.id}}">
                 <article class="tile is-child box">
                   <article class="media">
                     <div class="media-left">
                       <figure class="image is-64x64">
-                        <img
-                          src="{{trending.img}}"
-                          alt="An image of {{trending.name}}"
-                        />
+                        <img src={{recipe.img}} alt="Image" />
                       </figure>
                     </div>
                     <div class="media-content">
                       <div class="content">
                         <p>
-                          <strong>{{trending.name}}</strong>
+                          <strong>Title: {{recipe.name}}</strong>
                           <br />
-                          <small>{{trending.user.user_name}}</small>
+                          <small>Creator: {{recipe.user.user_name}}</small>
                         </p>
                       </div>
                     </div>
@@ -42,26 +39,23 @@
       <article class="media">
         <div class="media-left">
           <figure class="image is-128x128">
-            <img
-              src="{{img}}"
-              alt="An image of {{img.name}}"
-            />
+            <img src={{img}} alt="Image" />
           </figure>
         </div>
         <div class="column column-is-four-fifths">
           <div class="media-content has-text-centered">
             <div class="content">
               <p>
-                <h3>{{name}}</h3>
-                <br />
-                <small>Created by: {{user.user_name}}</small>
-                <br />
-                <small>on {{format_date date_created}}</small>
-                <br />
-                <br />
-                <br />
-                <br />
-                {{description}}
+              <h1>{{name}}</h1>
+              <br />
+              <small>Created by: {{user.user_name}},</small>
+              <small>on {{format_date date_created}}</small>
+              <br />
+              <br />
+              <br />
+              <br />
+              <h2>About this recipe:</h2>
+              {{description}}
               </p>
 
             </div>
@@ -96,6 +90,12 @@
           {{/each}}
         </tbody>
       </table>
+      <div>
+        <h2 style="font-weight:bold">Total Prep Time: </h2>
+        {{prep_time}} minutes
+        <h2 style="font-weight:bold">Total Cook Time: </h2>
+        {{cook_time}} minutes
+      </div>
     </div>
   </div>
 </div>

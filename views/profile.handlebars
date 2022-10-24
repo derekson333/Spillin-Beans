@@ -12,7 +12,7 @@
                   {{#if my_profile}}
                   <p class="title is-4">Email: {{email}}</p>
                   <div class="tile is-parent">
-                    <a class="tile is-child notification is-danger" id="delete" href="">
+                    <a data-id={{id}} id ="delete-user"class="tile is-child notification is-danger" href="">
                       <strong>Delete Profile</strong>
                     </a>
                   </div>
@@ -33,7 +33,13 @@
         <img src="{{recipe.img}}" alt="An image of {{recipe.name}}" class="tile is-child">
         <strong>{{recipe.name}}</strong>
         </a>
+        
     </div>
+    
+                    <a style='height: 10%'data-id={{recipe.id}} id ="delete-recipe"class="notification is-danger" href="">
+                      <strong>Delete Recipe</strong>
+                    </a>
+                 
     {{/each}}
 </div>
 

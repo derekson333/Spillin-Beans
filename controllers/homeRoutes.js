@@ -5,15 +5,15 @@ const withAuth = require('../utils/auth')
 // GET route to render the homepage
 router.get('/', async (req, res) => {
     try {
-        const usersData = await (await User.findAll()).slice(0, 4);
+        const usersData = await User.findAll();
         const users = usersData.map((user) => user.get({ plain: true }))
 
-        const recipesData = await (await Recipe.findAll({
+        const recipesData = await Recipe.findAll({
             include: {
                 model: User,
                 attributes: ['user_name']
             }
-        })).slice(0, 4);
+        });
         const recipes = recipesData.map((recipe) => recipe.get({ plain: true }))
         
         res.status(200).render('homepage', { 
@@ -109,6 +109,13 @@ router.get('/users/:id', withAuth, async (req, res) => {
 // GET route to render the recipe view page by id
 router.get('/recipes/:id', withAuth, async (req, res) => {
     try {
+        // Get ALL recipes
+        const recipesData = await Recipe.findAll({
+            include: {
+                model: User,
+                attributes: ['user_name']
+            }
+        });
         const recipeData = await Recipe.findByPk(req.params.id, {
             include: [
                 {
@@ -125,21 +132,12 @@ router.get('/recipes/:id', withAuth, async (req, res) => {
                 }
             ],
         });
+        const recipes = recipesData.map((recipe) => recipe.get({ plain: true }))
         const recipe = recipeData.get({ plain: true});
 
-        const trendingData = await (await Recipe.findAll({
-            include: [
-                {
-                    model: User,
-                    attributes: ['user_name'],
-                }
-            ]
-        })).slice(0, 6);
-        const trendings = trendingData.map((trending) => trending.get({ plain: true }));
-
         res.status(200).render('recipe', {
-            ...recipe,
-            trendings,
+            ...recipe, 
+            recipes,
             logged_in: req.session.logged_in,
             user_id: req.session.user_id
         });
