@@ -13,10 +13,13 @@
         <div class="tile is-child is-warning">Check out these recipes</div>
     </div>
     <div class="tile">
-        {{#each recipes as |recipe| }}
-        <div class="tile is-parent is-3">
-            <a href="/recipes/{{recipe.id}}" class="tile is-child notification is-primary">{{recipe.name}} by {{user.user_name}}</a>
-        </div>
-        {{/each}}
+    {{#each recipes as |recipe|}}
+    <div class="tile is-parent is-3">
+        <a href="/recipes/{{recipe.id}}" class="tile is-child notification is-primary">
+        <img src="{{recipe.img}}" alt="An image of {{recipe.name}}" class="tile is-child">
+        <strong>{{recipe.name}}</strong>
+        </a>
+    </div>
+    {{/each}}
     </div>
 </div>
