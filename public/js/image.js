@@ -9,8 +9,8 @@ const options = {
 
 // Event listener to open file picker for image
 document
-.querySelector('.new-recipe-form')  
-.addEventListener('submit', function () {
+// .querySelector('.new-recipe-form')  
+.addEventListener('upload', function () {
     client.picker(options).open();
   });
   
