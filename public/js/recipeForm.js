@@ -4,6 +4,7 @@ const currentIngredients = document.querySelector("#currentIngredients")
 const createInstruction = document.querySelector("#createInstruction")
 const addInstruction = document.querySelector("#addInstructionButton")
 const currentInstructions = document.querySelector("#currentInstructions")
+const uploadButton = document.getElementById('upload')
 const ingredientArr = []
 const instructionArr = []
 const ingNameArr = []
@@ -91,7 +92,6 @@ createInstruction.addEventListener('click', async function () {
 
 
 
-const uploadButton = document.getElementById('upload')
 // API setup to use filepicker and store image URL
 const apikey = 'A2Cms4wvRRnqHepwihpV0z';
 const client = filestack.init(apikey);
