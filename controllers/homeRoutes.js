@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
             }
         });
         const recipes = recipesData.map((recipe) => recipe.get({ plain: true }))
-
+        
         res.status(200).render('homepage', { 
             users, 
             recipes,
