@@ -1,7 +1,7 @@
 {
-  "name": "unh-group5-project2",
+  "name": "spillin-beans",
   "version": "1.0.0",
-  "description": "",
+  "description": "A web app to let you post your favorite recipes and share them with friends",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/derekson333/UNH-Group5-Project2.git"
+    "url": "git+https://github.com/derekson333/Spillin-Beans.git.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/derekson333/UNH-Group5-Project2/issues"
+    "url": "https://github.com/derekson333/Spillin-Beans.git/issues"
   },
-  "homepage": "https://github.com/derekson333/UNH-Group5-Project2#readme",
+  "homepage": "https://github.com/derekson333/Spillin-Beans.git#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "connect-session-sequelize": "^7.1.5",
