@@ -9,7 +9,7 @@ const options = {
   maxFiles: 1,
   uploadInBackground: false,
   onOpen: () => console.log('opened!'),
-  onUploadDone: (res) => console.log(res),
+  onUploadDone: (res) => console.log(res.filesUploaded[0].url),
 };
 
 
