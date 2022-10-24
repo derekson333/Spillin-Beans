@@ -1,5 +1,8 @@
+const delUserButton = document.getElementById("delete-user")
+const delRecipeButton = document.getElementById("delete-recipe")
 const delUserHandler = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
+  event.preventDefault()  
+  if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
       const response = await fetch(`/api/users/${id}`, {
@@ -15,6 +18,7 @@ const delUserHandler = async (event) => {
   };
 
   const delRecipeHandler = async (event) => {
+    event.preventDefault()
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
@@ -30,10 +34,5 @@ const delUserHandler = async (event) => {
     }
   };
   
-  document
-  .querySelector('#delete-user')
-  .addEventListener('click', delUserHandler);
-
-  document
-  .querySelector('#delete-recipe')
-  .addEventListener('click', delRecipeHandler);
+delUserButton.addEventListener('click', delUserHandler);
+delRecipeButton.addEventListener('click', delRecipeHandler);
