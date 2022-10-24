@@ -45,7 +45,7 @@ router.post('/login', async (req, res) => {
   
       if (!userData) {
         res
-          .status(400)
+          .status(401)
           .json({
             message: 'Incorrect user name or password, please try again'
           });
@@ -58,7 +58,7 @@ router.post('/login', async (req, res) => {
   
       if (!validPassword) {
         res
-          .status(400)
+          .status(401)
           .json({
             message: 'Incorrect user name or password, please try again'
           });
