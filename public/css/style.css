@@ -9,6 +9,9 @@ html {
 .tile.is-vertical > .tile.is-child:not(:last-child) {
   margin-bottom: 0.25rem !important;
 }
+.tile {
+  min-height: auto;
+}
 
 .Aligner {
   display: flex;
