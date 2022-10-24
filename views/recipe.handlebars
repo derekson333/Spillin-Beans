@@ -8,134 +8,26 @@
             <div class="tile is-parent is-vertical">
               {{#each recipes as |recipe|}}
               <a href="/recipes/{{recipe.id}}">
-              <article class="tile is-child box">
-                <article class="media">
-                  <div class="media-left">
-                    <figure class="image is-64x64">
-                      <img
-                        src={{recipe.img}}
-                        alt="Image"
-                      />
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <div class="content">
-                      <p>
-                        <strong>Title: {{recipe.name}}</strong>
-                        <br />
-                        <small>Creator: {{recipe.user.user_name}}</small>
-                      </p>
+                <article class="tile is-child box">
+                  <article class="media">
+                    <div class="media-left">
+                      <figure class="image is-64x64">
+                        <img src={{recipe.img}} alt="Image" />
+                      </figure>
                     </div>
-                  </div>
+                    <div class="media-content">
+                      <div class="content">
+                        <p>
+                          <strong>Title: {{recipe.name}}</strong>
+                          <br />
+                          <small>Creator: {{recipe.user.user_name}}</small>
+                        </p>
+                      </div>
+                    </div>
+                  </article>
                 </article>
-              </article>
               </a>
               {{/each}}
-              <article class="tile is-child box">
-                <article class="media">
-                  <div class="media-left">
-                    <figure class="image is-64x64">
-                      <img
-                        src="https://bulma.io/images/placeholders/128x128.png"
-                        alt="Image"
-                      />
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <div class="content">
-                      <p>
-                        <strong>Recipe Title</strong>
-                        <br />
-                        <small>Creator Username</small>
-                      </p>
-                    </div>
-                  </div>
-                </article>
-              </article>
-              <article class="tile is-child box">
-                <article class="media">
-                  <div class="media-left">
-                    <figure class="image is-64x64">
-                      <img
-                        src="https://bulma.io/images/placeholders/128x128.png"
-                        alt="Image"
-                      />
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <div class="content">
-                      <p>
-                        <strong>Recipe Title</strong>
-                        <br />
-                        <small>Creator Username</small>
-                      </p>
-                    </div>
-                  </div>
-                </article>
-              </article>
-              <article class="tile is-child box">
-                <article class="media">
-                  <div class="media-left">
-                    <figure class="image is-64x64">
-                      <img
-                        src="https://bulma.io/images/placeholders/128x128.png"
-                        alt="Image"
-                      />
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <div class="content">
-                      <p>
-                        <strong>Recipe Title</strong>
-                        <br />
-                        <small>Creator Username</small>
-                      </p>
-                    </div>
-                  </div>
-                </article>
-              </article>
-              <article class="tile is-child box">
-                <article class="media">
-                  <div class="media-left">
-                    <figure class="image is-64x64">
-                      <img
-                        src="https://bulma.io/images/placeholders/128x128.png"
-                        alt="Image"
-                      />
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <div class="content">
-                      <p>
-                        <strong>Recipe Title</strong>
-                        <br />
-                        <small>Creator Username</small>
-                      </p>
-                    </div>
-                  </div>
-                </article>
-              </article>
-              <article class="tile is-child box">
-                <article class="media">
-                  <div class="media-left">
-                    <figure class="image is-64x64">
-                      <img
-                        src="https://bulma.io/images/placeholders/128x128.png"
-                        alt="Image"
-                      />
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <div class="content">
-                      <p>
-                        <strong>Recipe Title</strong>
-                        <br />
-                        <small>Creator Username</small>
-                      </p>
-                    </div>
-                  </div>
-                </article>
-              </article>
             </div>
           </div>
         </div>
@@ -147,25 +39,23 @@
       <article class="media">
         <div class="media-left">
           <figure class="image is-128x128">
-            <img
-              src={{img}}
-              alt="Image"
-            />
+            <img src={{img}} alt="Image" />
           </figure>
         </div>
         <div class="column column-is-four-fifths">
           <div class="media-content has-text-centered">
             <div class="content">
               <p>
-                <h3>{{name}}</h3>
-                <br />
-                <small>{{user.user_name}},</small>
-                <small>{{format_date date_created}}</small>
-                <br />
-                <br />
-                <br />
-                <br />
-                {{description}}
+              <h1>{{name}}</h1>
+              <br />
+              <small>Created by: {{user.user_name}},</small>
+              <small>on {{format_date date_created}}</small>
+              <br />
+              <br />
+              <br />
+              <br />
+              <h2>About this recipe:</h2>
+              {{description}}
               </p>
 
             </div>
@@ -200,6 +90,12 @@
           {{/each}}
         </tbody>
       </table>
+      <div>
+        <h2 style="font-weight:bold">Total Prep Time: </h2>
+        {{prep_time}} minutes
+        <h2 style="font-weight:bold">Total Cook Time: </h2>
+        {{cook_time}} minutes
+      </div>
     </div>
   </div>
 </div>
