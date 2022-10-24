@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/derekson333/Spillin-Beans.git.git"
+    "url": "git+https://github.com/derekson333/Spillin-Beans.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/derekson333/Spillin-Beans.git/issues"
+    "url": "https://github.com/derekson333/Spillin-Beans/issues"
   },
-  "homepage": "https://github.com/derekson333/Spillin-Beans.git#readme",
+  "homepage": "https://github.com/derekson333/Spillin-Beans#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "connect-session-sequelize": "^7.1.5",
