@@ -13,30 +13,31 @@
     <div class="field">
       <label class="label">Recipe Ingredients</label>
       <div class="control has-icons-left has-icons-right">
-        <input class="input" type="text" placeholder="What's in it?" />
+        <input id="ingredientInput" class="input" type="text" placeholder="What's in it?" />
         <span class="icon is-small is-left">
           <i class="mdi mdi-notebook-edit"></i>
         </span>
-        <input
-          id="addIngredientButton"
-          class="button is-small is-success is-pulled-right"
-          type="submit"
-          value="+"
-        />
-        <input
-          id="removeIngredientButton"
-          class="button is-small is-danger is-pulled-right"
-          type="submit"
-          value="-"
-        />
+
+        <button id="createIngredient">Create ingredient</button>
+        <input id="addIngredientButton" class="button is-small is-success is-pulled-right" type="submit" value="+" />
+        <input id="removeIngredientButton" class="button is-small is-danger is-pulled-right" type="submit" value="-" />
+        <label for="ingredientSearch">Choose an ingredient:</label>
+        <input list="ingredientSearch" name="ingredientSearch">
+        <datalist id="ingredientSearch">
+          {{#each ingredients as |ingredient|}}
+          <option data-id={{ingredient.id}} value={{ingredient.name}}></option>
+          {{/each}}
+        </datalist>
+
+
+
+
         <br />
         <br />
         <div class="container">
           <div>
             <div class="table-container">
-              <table
-                class="table table is-bordered is-striped is-narrow is-hoverable"
-              >
+              <table class="table table is-bordered is-striped is-narrow is-hoverable">
                 <thead>
                   <tr>
                     <th>Ingredients Added:</th>
@@ -70,6 +71,15 @@
             <i class=""></i>
           </span>
         </div>
+        <button id="createInstruction">Create instruction</button>
+        <input id="addInstructionButton" class="button is-small is-success is-pulled-right" type="submit" value="+" />
+        <input id="removeInstructionButton" class="button is-small is-danger is-pulled-right" type="submit" value="-" />
+        <label for="instructionSearch">Choose an instruction:</label>
+        <select name="instructionSearch" id="instructionSearch">
+          {{#each instructions as |instruction|}}
+          <option value={{instruction.id}}>{{instruction.name}}</option>
+          {{/each}}
+        </select>
       </div>
       <label class="label">Upload a picture!</label>
       <div class="file">
@@ -86,7 +96,7 @@
       <br />
       <div class="field is-grouped">
         <div class="control">
-          <button class="button is-link">Submit</button>
+          <button id='create-recipe' class="button is-link">Submit</button>
         </div>
         <div class="control">
           <button class="button is-link is-light">Cancel</button>
