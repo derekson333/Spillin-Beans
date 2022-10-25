@@ -13,6 +13,8 @@ This application allows users to create and share recipes including ingredients,
 
 ## Where to Find It
 The application is deployed [here](http://spillin-beans.herokuapp.com/).
+The heroku deployment is also setup to automatically redeploy when the main branch is updated on the GitHub repository.
+The GitHub repository can be found [here](https://github.com/derekson333/Spillin-Beans)
 
 ## What It Looks Like
 ![image](https://cdn.filestackcontent.com/zsHxCKyDQz2UMsTEaw90)
