@@ -14,23 +14,20 @@ const instructionArr = []
 const ingNameArr = []
 const instNameArr = []
 
-
 function getIngredientNames() {
   var div = document.createElement('div')
-  for (let i = 0; i < ingNameArr.length; ++i){
-  var row = document.createElement('tr')
-  var header = document.createElement('th')
-  var data = document.createElement('td')
-  header.innerHTML = JSON.stringify(i+1);
-  data.innerHTML = ingNameArr[i]
-  row.appendChild(header)
-  row.appendChild(data)
-  div.appendChild(row)
-  
+  for (let i = 0; i < ingNameArr.length; ++i) {
+    var row = document.createElement('tr')
+    var header = document.createElement('th')
+    var data = document.createElement('td')
+    header.innerHTML = JSON.stringify(i + 1);
+    data.innerHTML = ingNameArr[i]
+    row.appendChild(header)
+    row.appendChild(data)
+    div.appendChild(row)
   }
   currentIngredients.innerHTML = div.innerHTML
 }
-
 addIngredient.addEventListener('click', function () {
   const chosenIngredient = ingredientSelect.value.trim()
   ingredientArr.unshift(chosenIngredient)
@@ -38,7 +35,7 @@ addIngredient.addEventListener('click', function () {
   ingNameArr.unshift(addedName);
   getIngredientNames()
 })
-removeIngredient.addEventListener('click', function(){
+removeIngredient.addEventListener('click', function () {
   ingredientArr.shift()
   ingNameArr.shift()
   getIngredientNames()
@@ -56,7 +53,7 @@ createIngredient.addEventListener('click', async function () {
     },
   });
   if (response.ok) {
-    alert("New ingredient added to our database");
+    location.reload()
 
   } else {
     alert(response.statusText);
@@ -64,24 +61,20 @@ createIngredient.addEventListener('click', async function () {
 })
 
 
-
-
-
 function getInstructionNames() {
   var div = document.createElement('div')
-  for (let i = 0; i < instNameArr.length; ++i){
-  var row = document.createElement('tr')
-  var header = document.createElement('th')
-  var data = document.createElement('td')
-  header.innerHTML = JSON.stringify(i+1);
-  data.innerHTML = instNameArr[i]
-  row.appendChild(header)
-  row.appendChild(data)
-  div.appendChild(row)
+  for (let i = 0; i < instNameArr.length; ++i) {
+    var row = document.createElement('tr')
+    var header = document.createElement('th')
+    var data = document.createElement('td')
+    header.innerHTML = JSON.stringify(i + 1);
+    data.innerHTML = instNameArr[i]
+    row.appendChild(header)
+    row.appendChild(data)
+    div.appendChild(row)
   }
   currentInstructions.innerHTML = div.innerHTML
 }
-
 
 addInstruction.addEventListener('click', function () {
   const chosenInstruction = instructionSelect.value.trim()
@@ -90,7 +83,7 @@ addInstruction.addEventListener('click', function () {
   instructionArr.unshift(chosenInstruction)
   getInstructionNames()
 })
-removeInstruction.addEventListener('click', function(){
+removeInstruction.addEventListener('click', function () {
   instructionArr.shift()
   instNameArr.shift()
   getInstructionNames()
@@ -108,8 +101,8 @@ createInstruction.addEventListener('click', async function () {
     },
   });
   if (response.ok) {
-    alert("New instruction added to our database");
     location.reload()
+
   } else {
     alert(response.statusText);
   }
@@ -123,15 +116,12 @@ const client = filestack.init(apikey);
 const options = {
   maxFiles: 1,
   uploadInBackground: false,
-  onOpen: () => console.log('opened!'),
   onUploadDone: (res) => imgUrl = res.filesUploaded[0].url
 };
-
 // Event listener on upload button to open file picker
 uploadButton.addEventListener('click', function () {
   client.picker(options).open();
 });
-
 
 const newFormHandler = async (event) => {
   event.preventDefault();
@@ -143,11 +133,7 @@ const newFormHandler = async (event) => {
   const ingredients = ingredientArr
   const instructions = instructionArr
   const img = imgUrl
-
-
-
   // Post function for creating a recipe
-
   if (name && description && prep_time && cook_time && ingredients && instructions && img) {
     const response = await fetch(`/api/recipes`, {
       method: 'POST',

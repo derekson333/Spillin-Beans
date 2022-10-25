@@ -26,19 +26,22 @@
     </div>
   </div>
 </div>
-<div class="tile">
+<div class="flex tile">
     {{#each recipes as |recipe|}}
-    <div class="tile is-parent is-3">
-        <a href="/recipes/{{recipe.id}}" class="tile is-child notification is-primary">
-        <img src="{{recipe.img}}" alt="An image of {{recipe.name}}" class="tile is-child">
+    <div style='margin:20px;'class="tile is-parent is-3 notification is-primary">
+        <a href="/recipes/{{recipe.id}}" class="tile is-child ">
         <strong>{{recipe.name}}</strong>
-        </a>
         
-    </div>
-    
-                    <a style='height: 10%'data-id={{recipe.id}} id ="delete-recipe"class="notification is-danger" href="">
-                      <strong>Delete Recipe</strong>
+        <img src="{{recipe.img}}" alt="An image of {{recipe.name}}" class="tile is-child">
+        
+        </a>
+         <a style='position: absolute;bottom: 0;left:0;'data-id={{recipe.id}} id ="delete-recipe"class="button is-child is-danger" href="">
+                      <strong>Delete</strong>
                     </a>
+    </div>
+     
+    
+                  
                  
     {{/each}}
 </div>
