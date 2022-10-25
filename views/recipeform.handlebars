@@ -4,6 +4,7 @@
     <div class="field">
       <label class="label">Recipe Name</label>
       <div class="control has-icons-left has-icons-right">
+        <input id="user-id" class="no-show" type="text" value = {{user.id}} />
         <input id="recipe-name" class="input" type="text" placeholder="What's it called?" />
         <span class="icon is-small is-left">
           <i class="mdi mdi-subtitles-outline"></i>
@@ -35,12 +36,15 @@
         <span class="icon is-small is-left">
           <i class="mdi mdi-notebook-edit"></i>
         </span>
-
-        <button id="createIngredient">Create ingredient</button>
+        </div>
+        <div>
+        <button class ='button is-success' id="createIngredient">Create ingredient</button>
+        </div>
+        <br>
         <input id="addIngredientButton" class="button is-small is-success is-pulled-right" type="submit" value="+" />
         <input id="removeIngredientButton" class="button is-small is-danger is-pulled-right" type="submit" value="-" />
         <label for="ingredientSearch">Choose an ingredient:</label>
-        <select name="ingredientData" id="ingredientData">
+        <select class='select'name="ingredientData" id="ingredientData">
           {{#each ingredients as |ingredient|}}
           <option value={{ingredient.id}}>{{ingredient.name}}</option>
           {{/each}}
@@ -56,10 +60,8 @@
             <div class="table-container">
               <table class="table table is-bordered is-striped is-narrow is-hoverable">
                 <thead>
-                  <tr>
-                    {{!-- JS will add the th and td elements --}}
-                    <th>Ingredients Added:</th>
-                  </tr>
+                    <th>Added</th>
+                    <th>Ingredient</th>
                 </thead>
                 <tbody id="currentIngredients">
                 </tbody>
@@ -77,15 +79,21 @@
             <i class=""></i>
           </span>
         </div>
-        <button id="createInstruction">Create instruction</button>
+        <div>
+        <button class='button is-success' id="createInstruction">Create instruction</button>
+        </div>
+        <br>
         <input id="addInstructionButton" class="button is-small is-success is-pulled-right" type="submit" value="+" />
         <input id="removeInstructionButton" class="button is-small is-danger is-pulled-right" type="submit" value="-" />
         <label for="instructionData">Choose an instruction:</label>
-        <select name="instructionData" id="instructionData">
+        
+        <select class='select' name="instructionData" id="instructionData">
           {{#each instructions as |instruction|}}
           <option value={{instruction.id}}>{{instruction.name}}</option>
           {{/each}}
         </select>
+        <br />
+        <br />
         <div class="container">
           <div>
             <div class="table-container">
@@ -93,8 +101,10 @@
                 <thead>
                   <tr>
                     {{!-- JS will add the th and td elements --}}
-                    <th>Instructions Added:</th>
+                    <th>Step Number</th>
+                    <th>Instruction</th>
                   </tr>
+                  
                 </thead>
                 <tbody id="currentInstructions">
                 </tbody>
