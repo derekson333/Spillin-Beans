@@ -1,34 +1,44 @@
 const createIngredient = document.querySelector("#createIngredient")
 const addIngredient = document.querySelector("#addIngredientButton")
+const removeIngredient = document.querySelector("#removeIngredientButton")
 const currentIngredients = document.querySelector("#currentIngredients")
 const createInstruction = document.querySelector("#createInstruction")
 const addInstruction = document.querySelector("#addInstructionButton")
+const removeInstruction = document.querySelector("#removeInstructionButton")
 const currentInstructions = document.querySelector("#currentInstructions")
 const uploadButton = document.getElementById('upload')
+const ingredientSelect = document.querySelector("#ingredientData")
+const instructionSelect = document.querySelector("#instructionData")
 const ingredientArr = []
 const instructionArr = []
 const ingNameArr = []
 const instNameArr = []
 
-
-function getIngredientNames(select) {
-  ingNameArr.unshift(select.options[select.selectedIndex].text);
-  var addedName = (select.options[select.selectedIndex].text)
-  var row = document.createElement('tr')
-  var header = document.createElement('th')
-  var data = document.createElement('td')
-  header.innerHTML = JSON.stringify(ingNameArr.length);
-  data.innerHTML = addedName
-  row.appendChild(header)
-  row.appendChild(data)
-  currentIngredients.appendChild(row)
+function getIngredientNames() {
+  var div = document.createElement('div')
+  for (let i = 0; i < ingNameArr.length; ++i) {
+    var row = document.createElement('tr')
+    var header = document.createElement('th')
+    var data = document.createElement('td')
+    header.innerHTML = JSON.stringify(i + 1);
+    data.innerHTML = ingNameArr[i]
+    row.appendChild(header)
+    row.appendChild(data)
+    div.appendChild(row)
+  }
+  currentIngredients.innerHTML = div.innerHTML
 }
-
 addIngredient.addEventListener('click', function () {
-  const chosenIngredient = document.querySelector("#ingredientData").value.trim()
-  const select = document.querySelector("#ingredientData")
+  const chosenIngredient = ingredientSelect.value.trim()
   ingredientArr.unshift(chosenIngredient)
-  getIngredientNames(select)
+  var addedName = (ingredientSelect.options[ingredientSelect.selectedIndex].text)
+  ingNameArr.unshift(addedName);
+  getIngredientNames()
+})
+removeIngredient.addEventListener('click', function () {
+  ingredientArr.shift()
+  ingNameArr.shift()
+  getIngredientNames()
 })
 
 createIngredient.addEventListener('click', async function () {
@@ -43,32 +53,40 @@ createIngredient.addEventListener('click', async function () {
     },
   });
   if (response.ok) {
-    alert("New ingredient added to our database");
     location.reload()
+
   } else {
     alert(response.statusText);
   }
 })
 
 
-function getInstructionNames(select) {
-  var addedName = (select.options[select.selectedIndex].text)
-  instNameArr.unshift(addedName);
-  var row = document.createElement('tr')
-  var header = document.createElement('th')
-  var data = document.createElement('td')
-  header.innerHTML = JSON.stringify(instNameArr.length);
-  data.innerHTML = addedName
-  row.appendChild(header)
-  row.appendChild(data)
-  currentInstructions.appendChild(row)
+function getInstructionNames() {
+  var div = document.createElement('div')
+  for (let i = 0; i < instNameArr.length; ++i) {
+    var row = document.createElement('tr')
+    var header = document.createElement('th')
+    var data = document.createElement('td')
+    header.innerHTML = JSON.stringify(i + 1);
+    data.innerHTML = instNameArr[i]
+    row.appendChild(header)
+    row.appendChild(data)
+    div.appendChild(row)
+  }
+  currentInstructions.innerHTML = div.innerHTML
 }
 
 addInstruction.addEventListener('click', function () {
-  const chosenInstruction = document.querySelector("#instructionData").value.trim()
+  const chosenInstruction = instructionSelect.value.trim()
+  var addedName = instructionSelect.options[instructionSelect.selectedIndex].text
+  instNameArr.unshift(addedName)
   instructionArr.unshift(chosenInstruction)
-  const select = document.querySelector("#instructionData")
-  getInstructionNames(select)
+  getInstructionNames()
+})
+removeInstruction.addEventListener('click', function () {
+  instructionArr.shift()
+  instNameArr.shift()
+  getInstructionNames()
 })
 
 createInstruction.addEventListener('click', async function () {
@@ -83,8 +101,8 @@ createInstruction.addEventListener('click', async function () {
     },
   });
   if (response.ok) {
-    alert("New instruction added to our database");
     location.reload()
+
   } else {
     alert(response.statusText);
   }
@@ -98,32 +116,25 @@ const client = filestack.init(apikey);
 const options = {
   maxFiles: 1,
   uploadInBackground: false,
-  onOpen: () => console.log('opened!'),
   onUploadDone: (res) => imgUrl = res.filesUploaded[0].url
 };
-
 // Event listener on upload button to open file picker
 uploadButton.addEventListener('click', function () {
   client.picker(options).open();
 });
 
-
 const newFormHandler = async (event) => {
   event.preventDefault();
-  console.log('Hi')
   const name = document.querySelector('#recipe-name').value.trim();
   const description = document.querySelector('#recipe-desc').value.trim();
   const prep_time = document.querySelector('#prep-time').value.trim();
   const cook_time = document.querySelector('#cook-time').value.trim();
+  const user_id = document.querySelector('#user-id').value.trim();
   const ingredients = ingredientArr
   const instructions = instructionArr
   const img = imgUrl
-  const user_id = 1
-
-
   // Post function for creating a recipe
-
-  if (name && description) {
+  if (name && description && prep_time && cook_time && ingredients && instructions && img) {
     const response = await fetch(`/api/recipes`, {
       method: 'POST',
       body: JSON.stringify({

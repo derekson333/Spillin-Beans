@@ -42,3 +42,20 @@ html {
 #mainColumn {
   height: 100%;
 }
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flexcard {
+  flex: 1 1 160px;
+}
+
+.button {
+  margin-top:5px;
+}
+
+.no-show {
+  display:none;
+}

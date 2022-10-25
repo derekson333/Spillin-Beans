@@ -50,25 +50,27 @@
               <br />
               <small>Created by: {{user.user_name}},</small>
               <small>on {{format_date date_created}}</small>
-              <br />
-              <br />
-              <br />
-              <br />
-              <h2>About this recipe:</h2>
-              {{description}}
               </p>
+              <br>
+              
+              <div class="card">
+              <p class="card-body"><h2>About this recipe:</h2>{{description}}</p>
+              
+              </div>
+              
 
             </div>
           </div>
         </div>
       </article>
-      <table class="table table is-bordered is-striped is-narrow is-hoverable">
+      
+      <table class="card table table is-bordered is-striped is-narrow is-hoverable">
         <thead>
           <tr>
-            <th>Ingredients:</th>
+            <th class="card-header">Ingredients:</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="card-body">
           {{#each ingredients as |ingredient|}}
           <tr>
             <td>{{ingredient.name}}</td>
@@ -76,13 +78,14 @@
           {{/each}}
         </tbody>
       </table>
-      <table class="table table is-bordered is-striped is-narrow is-hoverable">
+      
+      <table class="card table table is-bordered is-striped is-narrow is-hoverable">
         <thead>
           <tr>
-            <th>Instructions:</th>
+            <th class="card-header">Instructions:</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="card-body">
           {{#each instructions as |instruction|}}
           <tr>
             <td>{{instruction.name}}</td>

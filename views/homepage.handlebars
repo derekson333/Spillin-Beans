@@ -2,7 +2,7 @@
     <div class="tile is-parent">
         <div class="tile is-child is-warning">Check out these users</div>
     </div>
-    <div class="tile">
+    <div class="flex tile">
         {{#each users as |user| }}
         <div class="tile is-parent is-3">
             <a href="/users/{{user.id}}" class="tile is-child notification is-primary">{{user.user_name}}</a>
@@ -12,7 +12,7 @@
     <div class="tile is-parent">
         <div class="tile is-child is-warning">Check out these recipes</div>
     </div>
-    <div class="tile">
+    <div class="flex tile">
     {{#each recipes as |recipe|}}
     <div class="tile is-parent is-3">
         <a href="/recipes/{{recipe.id}}" class="tile is-child notification is-primary">

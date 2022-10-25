@@ -5,15 +5,15 @@ const withAuth = require('../utils/auth')
 // GET route to render the homepage
 router.get('/', async (req, res) => {
     try {
-        const usersData = await User.findAll();
+        const usersData = await User.findAll()
         const users = usersData.map((user) => user.get({ plain: true }))
 
-        const recipesData = await Recipe.findAll({
+        const recipesData = (await Recipe.findAll({
             include: {
                 model: User,
                 attributes: ['user_name']
             }
-        });
+        })).slice(0, 8);
         const recipes = recipesData.map((recipe) => recipe.get({ plain: true }))
         
         res.status(200).render('homepage', { 
@@ -68,13 +68,16 @@ router.get('/results', withAuth, (req, res) => {
 // GET route to render the add recipe form page
 router.get('/addrecipe', withAuth, async (req, res) => {
     try {
+        const userData = await User.findByPk(req.session.user_id)
         const ingredientData = await Ingredient.findAll()
         const instructionData = await Instruction.findAll()
         const ingredients = ingredientData.map((ingredient) => ingredient.get({ plain: true }))
         const instructions =instructionData.map((instruction) => instruction.get({ plain: true }))
+        const user = userData.get({ plain: true })
         res.status(200).render('recipeform', {
             ingredients,
             instructions,
+            user,
             logged_in: req.session.logged_in,
             user_id: req.session.user_id
         })
@@ -132,7 +135,7 @@ router.get('/recipes/:id', withAuth, async (req, res) => {
                 }
             ],
         });
-        const recipes = recipesData.map((recipe) => recipe.get({ plain: true }))
+        const recipes = recipesData.map((recipe) => recipe.get({ plain: true })).slice(0,6)
         const recipe = recipeData.get({ plain: true});
 
         res.status(200).render('recipe', {
