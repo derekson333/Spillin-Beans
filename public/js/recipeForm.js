@@ -164,6 +164,5 @@ const newFormHandler = async (event) => {
 
 
 
-document
-  .querySelector('#create-recipe')
+create-recipe
   .addEventListener('click', newFormHandler);
