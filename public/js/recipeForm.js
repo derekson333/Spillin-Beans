@@ -164,5 +164,6 @@ const newFormHandler = async (event) => {
 
 
 
-create-recipe
+document
+  .create-recipe
   .addEventListener('click', newFormHandler);
